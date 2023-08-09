@@ -11,5 +11,18 @@ console.log(mainSection);
 const loadPhones = () => {
     fetch('https://openapi.programming-hero.com/api/phones?search=iphone')
         .then(res => res.json())
-        .then(data => console.log(data.data));
+        .then(data => displayPhones(data.data));
 };
+
+
+const displayPhones = (phones) => {
+    console.log(phones);
+
+    phones.forEach(phone => {
+        console.log(phone);
+        const div = document.createElement('div');
+        div.innerHTML = `
+        
+        `;
+    });
+}
