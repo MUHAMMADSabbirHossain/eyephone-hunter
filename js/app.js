@@ -10,20 +10,28 @@ const mainSection = document.getElementById('main-section');
 console.log(mainSection);
 
 
+// spinner
+const toggleSpinner = displayStyle => {
+    document.getElementById('spinner').style.display = displayStyle;
+};
+
 const loadPhones = () => {
+    mainSection.textContent = ``;
+    phoneDetailsDiv.textContent = ``;
+    errorSection.textContent = ``;
+
+    toggleSpinner('block')
     if (inputField.value == "") {
         const div = document.createElement('div');
         div.innerHTML = `
         <h4 style="color: red;">Please Enter the Search keyword, Try Again.</h4>
         `;
         errorSection.appendChild(div);
+        toggleSpinner('none');
         return 0;
     }
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputField.value}`
     inputField.value = "";
-    mainSection.textContent = ``;
-    phoneDetailsDiv.textContent = ``;
-    errorSection.textContent = ``;
     fetch(url)
         .then(res => res.json())
         .then(data => displayPhones(data.data));
@@ -58,6 +66,7 @@ const displayPhones = (phones) => {
         `;
         mainSection.appendChild(div);
     });
+    toggleSpinner('none');
 };
 
 
