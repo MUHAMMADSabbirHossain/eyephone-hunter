@@ -11,6 +11,14 @@ console.log(mainSection);
 
 
 const loadPhones = () => {
+    if (inputField.value == "") {
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <h4 style="color: red;">Please Enter the Search keyword, Try Again.</h4>
+        `;
+        errorSection.appendChild(div);
+        return 0;
+    }
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputField.value}`
     inputField.value = "";
     mainSection.textContent = ``;
