@@ -13,6 +13,8 @@ console.log(mainSection);
 const loadPhones = () => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputField.value}`
     inputField.value = "";
+    mainSection.textContent = ``;
+    phoneDetailsDiv.textContent = ``;
     fetch(url)
         .then(res => res.json())
         .then(data => displayPhones(data.data));
@@ -21,7 +23,6 @@ const loadPhones = () => {
 
 const displayPhones = (phones) => {
     console.log(phones);
-    mainSection.textContent = ``;
 
     phones.forEach(phone => {
         console.log(phone.slug);
@@ -80,7 +81,6 @@ const displayPhoneDetails = phoneDetails => {
                 </div>
             </div>
         `;
-    phoneDetailsDiv.textContent = ``;
     phoneDetailsDiv.appendChild(div);
     console.log(phoneDetailsDiv);
 
