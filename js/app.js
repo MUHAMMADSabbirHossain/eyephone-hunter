@@ -18,12 +18,26 @@ const loadPhones = () => {
 
 const displayPhones = (phones) => {
     console.log(phones);
+    mainSection.textContent = ``;
 
     phones.forEach(phone => {
-        console.log(phone);
+        // console.log(phone);
         const div = document.createElement('div');
+        div.className = "col";
         div.innerHTML = `
-        
+            <div class="card h-100">
+                <h2>${phone.phone_name}</h2>
+                <h4  class="card-title">${phone.brand}</h4>
+
+                <img src="${phone.image}" class="card-img-top w-25 m-auto" alt="..." width="">
+
+                <div class="card-body">
+                    <button class="btn btn-primary">Details</button>
+                </div>
+            </div>
         `;
+        mainSection.appendChild(div);
     });
 }
+
+
