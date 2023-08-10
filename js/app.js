@@ -26,7 +26,9 @@ const displayPhones = (phones) => {
     console.log(phones);
     if (phones == "") {
         const div = document.createElement('div');
-        div.innerHTML = `No Phone Found. Please, Try Again.`;
+        div.innerHTML = `
+        <h4 style="color: red;">No Phone Found. Please, Try Again.</h4>
+        `;
         errorSection.appendChild(div);
         return 0;
     }
