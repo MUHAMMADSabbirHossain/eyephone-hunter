@@ -15,6 +15,7 @@ const loadPhones = () => {
     inputField.value = "";
     mainSection.textContent = ``;
     phoneDetailsDiv.textContent = ``;
+    errorSection.textContent = ``;
     fetch(url)
         .then(res => res.json())
         .then(data => displayPhones(data.data));
@@ -23,6 +24,12 @@ const loadPhones = () => {
 
 const displayPhones = (phones) => {
     console.log(phones);
+    if (phones == "") {
+        const div = document.createElement('div');
+        div.innerHTML = `No Phone Found. Please, Try Again.`;
+        errorSection.appendChild(div);
+        return 0;
+    }
 
     phones.forEach(phone => {
         console.log(phone.slug);
