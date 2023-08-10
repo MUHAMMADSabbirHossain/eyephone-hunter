@@ -10,6 +10,7 @@ console.log(mainSection);
 
 const loadPhones = () => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputField.value}`
+    inputField.value = "";
     fetch(url)
         .then(res => res.json())
         .then(data => displayPhones(data.data));
