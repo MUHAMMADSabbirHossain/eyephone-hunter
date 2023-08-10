@@ -69,7 +69,7 @@ const displayPhoneDetails = phoneDetails => {
             <div class="card h-100 w-25 m-auto my-5">
                 <h2>${phoneDetails.name}</h2>
                 <h4 class="card-title">${phoneDetails.brand}</h4>
-                <h6> ${phoneDetails.releaseDate}</h6>
+                <h6> ${phoneDetails.releaseDate ? phoneDetails.releaseDate : "No relase date found"}</h6>
 
                 <img src="${phoneDetails.image}" class="card-img-top w-50 m-auto" alt="..." width="">
 
